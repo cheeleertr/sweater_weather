@@ -33,7 +33,7 @@ class ForecastSerializer
         hourly_weather:
           forecast.hourly_weather.map do |hourly_weather|
             {
-              time: hourly_weather.time,
+              time: DateTime.parse(hourly_weather.time).strftime("%H:%M"),
               temperature: hourly_weather.temperature,
               condition: hourly_weather.condition,
               icon: hourly_weather.icon

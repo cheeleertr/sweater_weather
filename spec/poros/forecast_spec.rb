@@ -15,6 +15,9 @@ RSpec.describe Forecast do
     expect(forecast.hourly_weather).to be_an Array
     expect(forecast.hourly_weather.count).to eq(24)
     expect(forecast.hourly_weather).to all(be_a HourlyWeather)
+    # make sure its todays hours
+    expect(Time.parse(forecast.hourly_weather.first.time).strftime("%Y-%m-%d")).to eq(DateTime.parse(forecast.daily_weather.first.date).strftime("%Y-%m-%d"))
+    expect(Time.parse(forecast.hourly_weather.first.time).strftime("%Y-%m-%d")).to_not eq(DateTime.parse(forecast.daily_weather[1].date).strftime("%Y-%m-%d"))
 
   end
 end

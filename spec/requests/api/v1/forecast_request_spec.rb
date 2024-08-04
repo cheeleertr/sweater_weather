@@ -76,6 +76,8 @@ describe "Forecast API" do
 
     expect(hourly_weather).to be_an(Array)
     expect(hourly_weather.count).to eq(24)
+    expect(hourly_weather.first[:time]).to eq("00:00")
+    expect(hourly_weather.first[:time]).to_not eq("2024-08-03 00:00")
 
     hourly_weather.each do |hour|
       expect(hour).to be_a(Hash)
