@@ -4,7 +4,7 @@ describe MapService do
   context "class methods" do
     context "#get_coordinates_by_location" do
       it "returns coordinates data", :vcr do
-        search = MapService.get_coordinates_by_location("denver", "colorado")
+        search = MapService.get_coordinates_by_location("Denver, CO")
 
         expect(search).to be_a Hash
 
@@ -20,7 +20,7 @@ describe MapService do
       end
 
       it "returns fallback coordinates when no results found" do
-        search = MapService.get_coordinates_by_location("notreallyacity", "notreallyastate")
+        search = MapService.get_coordinates_by_location("notreallyacity,notreallyastate")
 
         expect(search).to be_a Hash
 

@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 describe "Forecast API" do
-  xit "returns forecast JSON data with the correct structure and values", :vcr do
+  it "returns forecast JSON data with the correct structure and values" do
 
-    GET '/api/v1/forecast?location=cincinatti,oh'
+    get '/api/v1/forecast?location=cincinatti,oh'
+
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
-
+    
     forecast = JSON.parse(response.body, symbolize_names: true)
 
     expect(forecast).to have_key(:data)
@@ -34,7 +35,7 @@ describe "Forecast API" do
     expect(current_weather).to have_key(:feels_like)
     expect(current_weather[:feels_like]).to be_a(Float)
     expect(current_weather).to have_key(:humidity)
-    expect(current_weather[:humidity]).to be_a(Float)
+    expect(current_weather[:humidity]).to be_a(Integer)
     expect(current_weather).to have_key(:uvi)
     expect(current_weather[:uvi]).to be_a(Float)
     expect(current_weather).to have_key(:visibility)
@@ -82,8 +83,8 @@ describe "Forecast API" do
       expect(hour[:time]).to be_a(String)
       expect(hour).to have_key(:temperature)
       expect(hour[:temperature]).to be_a(Float)
-      expect(hour).to have_key(:conditions)
-      expect(hour[:conditions]).to be_a(String)
+      expect(hour).to have_key(:condition)
+      expect(hour[:condition]).to be_a(String)
       expect(hour).to have_key(:icon)
       expect(hour[:icon]).to be_a(String)
     end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.mapquestapi.com/geocoding/v1/address?key=nKgNKZvPU7KXYuOsVOzIfQgaexGjeP86&location=denver,colorado
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=DONT_SHARE_MY_MAPQUEST_KEY&location=Denver,%20CO
     body:
       encoding: US-ASCII
       string: ''
@@ -19,24 +19,25 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 03 Aug 2024 23:48:43 GMT
+      - Sun, 04 Aug 2024 02:34:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '803'
+      - '798'
       Connection:
       - keep-alive
       X-Powered-By:
       - MapQuest
       X-Request-Id:
-      - ea856180-51f2-11ef-b46f-752f5ce9f881
+      - '0887c1c0-520a-11ef-b46f-752f5ce9f881'
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - W/"323-igOiLQLD7wssrJ2WX5sXDW2ks60"
+      - W/"31e-v9RTntepbi8oVfStLeY6My1XCJ8"
     body:
       encoding: UTF-8
       string: '{"info":{"statuscode":0,"copyright":{"text":"© 2024 MapQuest, Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"©
-        2024 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"denver,colorado"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"0","unknownInput":"","type":"s","latLng":{"lat":39.74001,"lng":-104.99202},"displayLatLng":{"lat":39.74001,"lng":-104.99202},"mapUrl":""}]}]}'
-  recorded_at: Sat, 03 Aug 2024 23:48:43 GMT
+        2024 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"Denver,
+        CO"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"0","unknownInput":"","type":"s","latLng":{"lat":39.74001,"lng":-104.99202},"displayLatLng":{"lat":39.74001,"lng":-104.99202},"mapUrl":""}]}]}'
+  recorded_at: Sun, 04 Aug 2024 02:34:11 GMT
 recorded_with: VCR 6.2.0
