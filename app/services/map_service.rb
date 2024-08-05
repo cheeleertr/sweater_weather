@@ -8,6 +8,5 @@ class MapService
   def self.get_coordinates_by_location(location)
     response = conn.get("/geocoding/v1/address?location=#{location}")
     JSON.parse(response.body, symbolize_names: true)
-    # binding.pry
   end
 end

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CurrentWeather do
-  it "can initialize with current weather attributes" do
+  it "can initialize with current weather attributes", :vcr do
     json = WeatherService.get_forecast_by_coordinates("39.74001", "-104.99202")
     forecast_data = json[:current]
     current_weather = CurrentWeather.new(forecast_data)

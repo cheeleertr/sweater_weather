@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "Users API" do
-  context "post /api/v0/users" do
-    it "creates a user and returns JSON data with the correct structure and values" do
+  context "post /api/v1/users" do
+    it "creates a user and returns JSON data with the correct structure and values", :vcr do
       user_attributes = {
         email: "testinguserscreate@gmail.com",
         password: "password",
@@ -35,7 +35,7 @@ describe "Users API" do
       expect(user_response[:data][:attributes][:api_key]).to be_a(String)
     end
 
-    it "returns a 422 status code and errors when the request is invalid" do
+    it "returns a 422 status code and errors when the request is invalid", :vcr do
       User.create!(email: 'existinguser@gmail.com', password: 'password', password_confirmation: 'password')
 
       invalid_attributes = [
@@ -50,7 +50,11 @@ describe "Users API" do
 
         expect(response).to_not be_successful
         expect(response.status).to eq(422)
-        expect(response.body).to include('errors')
+        error_response = JSON.parse(response.body, symbolize_names: true)
+
+        expect(error_response).to have_key(:errors)
+        expect(error_response[:errors].first).to have_key(:status)
+        expect(error_response[:errors].first).to have_key(:title)
       end
     end
   end

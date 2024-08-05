@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Forecast do
-  it "can initialize with forecast attributes" do
+  it "can initialize with forecast attributes", :vcr do
     json = WeatherService.get_forecast_by_coordinates("39.74001", "-104.99202")
     forecast = Forecast.new(json)
 

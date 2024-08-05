@@ -19,7 +19,7 @@ describe MapService do
         expect(coordinates_data[:lng]).to be_a Float
       end
 
-      it "returns fallback coordinates when no results found" do
+      it "returns fallback coordinates when no results found", :vcr do
         search = MapService.get_coordinates_by_location("notreallyacity,notreallyastate")
 
         expect(search).to be_a Hash
