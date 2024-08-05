@@ -8,6 +8,5 @@ class WeatherService
   def self.get_forecast_by_coordinates(lat,lon)
     response = conn.get("/v1/forecast.json?q=#{lat},#{lon}&days=5&aqi=no&alerts=no")
     JSON.parse(response.body, symbolize_names: true)
-    # binding.pry
   end
 end

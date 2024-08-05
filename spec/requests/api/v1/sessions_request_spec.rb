@@ -11,16 +11,16 @@ describe "Sessions API" do
       @user.api_keys.create!(token: "t1h2i3s4_i5s6_l7e8g9i10t11")
     end
 
-    it "returns user API key with correct email and password" do
+    it "returns user API key with correct email and password", :vcr do
       user_attributes = {
-        email: "whatever@gmail.com",
+        email: "testsession@gmail.com",
         password: "password"
       }
 
       post '/api/v1/sessions', params: user_attributes.to_json, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
 
       expect(response).to be_successful
-      expect(response).to eq(201)
+      expect(response.status).to eq(200)
 
       response_body = JSON.parse(response.body, symbolize_names: true)
 
@@ -28,7 +28,7 @@ describe "Sessions API" do
       expect(response_body[:data]).to be_a(Hash)
 
       expect(response_body[:data]).to have_key(:id)
-      expect(response_body[:data][:id]).to eq(@user.id.to_s)
+      expect(response_body[:data][:id]).to eq(@user.id)
 
       expect(response_body[:data]).to have_key(:type)
       expect(response_body[:data][:type]).to eq("users")
@@ -43,7 +43,7 @@ describe "Sessions API" do
       expect(response_body[:data][:attributes][:api_key]).to eq("t1h2i3s4_i5s6_l7e8g9i10t11")
     end
 
-    it "returns a 401 status code and errors when the request is invalid" do
+    it "returns a 401 status code and errors when the request is invalid", :vcr do
       invalid_credentials = [
         { email: '', password: 'password' },
         { email: 'testsession@gmail.com', password: '' },
@@ -55,8 +55,13 @@ describe "Sessions API" do
         post '/api/v1/sessions', params: credentials.to_json, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
 
         expect(response).to_not be_successful
-        expect(response).to eq(401)
-        expect(response.body[:errors].first[:title]).to eq('Invalid credentials')
+        expect(response.status).to eq(401)
+        error_response = JSON.parse(response.body, symbolize_names: true)
+
+        expect(error_response).to have_key(:errors)
+        expect(error_response[:errors].first).to have_key(:status)
+        expect(error_response[:errors].first).to have_key(:title)
+        expect(error_response[:errors].first[:title]).to eq('Invalid Credentials')
       end
     end
   end

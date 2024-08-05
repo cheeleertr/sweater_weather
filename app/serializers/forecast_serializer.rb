@@ -2,7 +2,6 @@ class ForecastSerializer
   include JSONAPI::Serializer
 
   def self.format_forecast(forecast)
-    # binding.pry
     {
     data: {
       id: nil,

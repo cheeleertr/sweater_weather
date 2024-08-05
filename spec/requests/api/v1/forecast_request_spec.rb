@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Forecast API" do
   context "get /api/v1/forecast" do
-    it "returns forecast JSON data with the correct structure and values" do
+    it "returns forecast JSON data with the correct structure and values", :vcr do
 
       get '/api/v1/forecast?location=cincinatti,oh', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
 
