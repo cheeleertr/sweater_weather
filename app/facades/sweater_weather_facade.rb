@@ -1,5 +1,3 @@
-# class ImpossibleRoute < StandardError; end
-
 class SweaterWeatherFacade
   def initialize
 

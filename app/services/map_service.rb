@@ -12,7 +12,6 @@ class MapService
 
   def self.get_route(from, to)
     response = conn.get("/directions/v2/route?from=#{from}&to=#{to}")
-    # binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end
 end

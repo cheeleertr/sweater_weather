@@ -6,6 +6,5 @@ class RoadTrip
     @eta = "#{route.eta_date} #{route.eta_hour}:00"
     @temperature = weather[:forecast][:forecastday][0][:hour][0][:temp_f]
     @condition = weather[:forecast][:forecastday][0][:hour][0][:condition][:text]
-    # binding.pry
   end
 end
