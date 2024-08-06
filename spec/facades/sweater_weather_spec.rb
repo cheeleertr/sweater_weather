@@ -8,10 +8,6 @@ describe SweaterWeatherFacade do
 
         expect(response).to be_a Forecast
       end
-
-      it "can gracefully handle if the location is invalid" do
-
-      end
     end
   end
 end
