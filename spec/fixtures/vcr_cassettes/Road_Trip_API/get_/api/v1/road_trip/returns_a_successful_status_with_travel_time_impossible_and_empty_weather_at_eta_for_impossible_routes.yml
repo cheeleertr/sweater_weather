@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 06 Aug 2024 02:41:00 GMT
+      - Tue, 06 Aug 2024 03:51:08 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,7 +29,7 @@ http_interactions:
       X-Powered-By:
       - MapQuest
       X-Request-Id:
-      - 50f61490-539d-11ef-b0c2-d566cccd01ed
+      - 1d41cc70-53a7-11ef-9b52-6fe3738f6c87
       Access-Control-Allow-Origin:
       - "*"
       Etag:
@@ -39,7 +39,7 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"© 2024 MapQuest, Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"©
         2024 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"London,
         UK"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"London","adminArea5Type":"City","adminArea4":"London","adminArea4Type":"County","adminArea3":"ENG","adminArea3Type":"State","adminArea1":"GB","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"0","unknownInput":"","type":"s","latLng":{"lat":51.50643,"lng":-0.12719},"displayLatLng":{"lat":51.50643,"lng":-0.12719},"mapUrl":""}]}]}'
-  recorded_at: Tue, 06 Aug 2024 02:41:00 GMT
+  recorded_at: Tue, 06 Aug 2024 03:51:08 GMT
 - request:
     method: get
     uri: http://www.mapquestapi.com/directions/v2/route?from=New%20York,%20NY&key=DONT_SHARE_MY_MAPQUEST_KEY&to=London,%20UK
@@ -59,7 +59,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 06 Aug 2024 02:41:00 GMT
+      - Tue, 06 Aug 2024 03:51:08 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -69,7 +69,7 @@ http_interactions:
       X-Powered-By:
       - MapQuest
       X-Request-Id:
-      - 510afc20-539d-11ef-9f03-1d472e7966e5
+      - 1d599a30-53a7-11ef-a7dd-61ba7ddbad59
       Access-Control-Allow-Origin:
       - "*"
       X-Transaction-Count:
@@ -81,5 +81,5 @@ http_interactions:
       string: '{"route":{"routeError":{"errorCode":2,"message":""}},"info":{"statuscode":402,"copyright":{"text":"©
         2024 MapQuest, Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"©
         2024 MapQuest, Inc."},"messages":["We are unable to route with the given locations."]}}'
-  recorded_at: Tue, 06 Aug 2024 02:41:00 GMT
+  recorded_at: Tue, 06 Aug 2024 03:51:08 GMT
 recorded_with: VCR 6.2.0
