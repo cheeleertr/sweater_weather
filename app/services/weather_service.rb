@@ -9,4 +9,9 @@ class WeatherService
     response = conn.get("/v1/forecast.json?q=#{lat},#{lon}&days=5&aqi=no&alerts=no")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.get_eta_weather(lat, lon, date, hour)
+    response = conn.get("/v1/forecast.json?q=#{lat},#{lon}&dt=#{date}&hour=#{hour}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
